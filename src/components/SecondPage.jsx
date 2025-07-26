@@ -78,7 +78,7 @@ export default function SecondPage() {
               className={`absolute px-4 py-2 rounded-xl text-white text-center font-serif`}
               style={{
                 left: leftVal || `${Math.floor(Math.random() * 90)}%`,
-                bottom: "-10vh",
+                bottom: "-15vh",
                 backgroundColor: isImage ? "transparent" : color,
                 animation: `floatUp-${layer}-${index} ${duration} linear infinite`,
                 animationDelay: delay,
