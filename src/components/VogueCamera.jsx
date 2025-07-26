@@ -58,7 +58,6 @@ export default function VogueCamera() {
             "radial-gradient(circle at var(--flash-x, 50%) var(--flash-y, 50%), rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 15%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.05) 60%, transparent 80%)",
         }}
       />
-
       {/* Webcam full background */}
       <div className="absolute inset-0 z-0">
         <Webcam
@@ -69,7 +68,6 @@ export default function VogueCamera() {
           videoConstraints={{ facingMode: "user" }}
         />
       </div>
-
       {/* VOGUE Overlay */}
       <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between w-full px-4">
         <div className="pt-6 flex flex-col items-center w-full">
@@ -113,7 +111,7 @@ export default function VogueCamera() {
             seen before
           </p>
         </div>
-      </div>
+      </div>{" "}
     </section>
   );
 }

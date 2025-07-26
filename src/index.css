@@ -10,3 +10,41 @@
 .font-vogue {
   font-family: "Vogue", serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0.9;
+  }
+}
+
+.animate-floatUp {
+  animation: floatUp 10s linear infinite;
+}
+
+/* Hide scrollbars globally */
+body,
+html {
+  overflow: hidden;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none;
+}
