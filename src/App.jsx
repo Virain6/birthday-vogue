@@ -7,7 +7,7 @@ export default function App() {
   const [accessGranted, setAccessGranted] = useState(false);
   const [passwordInput, setPasswordInput] = useState("");
 
-  const correctPassword = "sukhmun2025";
+  const correctPassword = "Sukhmun2025";
   const handleSubmit = (e) => {
     e.preventDefault();
     if (passwordInput === correctPassword) {
