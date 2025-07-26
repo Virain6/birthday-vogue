@@ -97,15 +97,15 @@ export default function VogueCamera() {
           <p className="uppercase font-arapey text-[29px] md:text-[47px]">
             A true icon
           </p>
-          <p className="uppercase font-arapey font-thin text-[28px] md:text-[46px]">
+          <p className="uppercase font-arapey font-thin text-[1.8rem] md:text-[46px]">
             Still making
           </p>
           <p className="uppercase font-arapey text-[18px] md:text-[29px]">
             <span className="text-pink-500 font-semibold">"your mom"</span>{" "}
             <span className="text-white">Jokes</span>
           </p>
-          <p className="uppercase font-arapey text-[1.04rem] md:text-[27px]">
-            Enjoying like never
+          <p className="uppercase font-arapey text-[1.05rem] md:text-[27px]">
+            Muscles like never
           </p>
           <p className="uppercase font-arapey font-thin text-[1.8rem] md:text-[46px]">
             seen before
