@@ -73,17 +73,17 @@ export default function VogueCamera() {
       {/* VOGUE Overlay */}
       <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between w-full px-4">
         <div className="pt-6 flex flex-col items-center w-full">
-          <h1 className="text-white text-[25vw] sm:text-[16vw] leading-none font-serif tracking-wider">
+          <h1 className="text-white text-[25vw] sm:text-[16vw] leading-none font-vogue tracking-wider">
             VOGUE
           </h1>
         </div>
 
         {/* Bottom right: SUKHMUN + Birthday */}
         <div className="text-center pb-10">
-          <h2 className="text-pink-500 text-[15vw]  md:text-[7vw] font-serif font-bold tracking-wide">
+          <h2 className="text-white text-[15vw]  md:text-[7vw] leading-none  font-thin font-vogue  tracking-wide">
             SUKHMUN
           </h2>
-          <p className="text-white italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-serif">
+          <p className="text-white italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-vogue">
             "Bitches it's my mfing 23rd Birthday"
           </p>
         </div>
@@ -102,11 +102,9 @@ export default function VogueCamera() {
           <p className="uppercase font-arapey font-thin text-[28px] md:text-[46px]">
             Still making
           </p>
-          <p className="text-pink-500 uppercase font-semibold font-arapey text-[27px] md:text-[44px]">
-            "your mom"
-          </p>
-          <p className="uppercase font-arapey text-[22px] md:text-[35px]">
-            jokes and still
+          <p className="uppercase font-arapey text-[18px] md:text-[29px]">
+            <span className="text-pink-500 font-semibold">"your mom"</span>{" "}
+            <span className="text-white">Jokes</span>
           </p>
           <p className="uppercase font-arapey text-[1.04rem] md:text-[27px]">
             Enjoying like never

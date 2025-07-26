@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Vogue";
+  src: url("/fonts/vogue.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-vogue {
+  font-family: "Vogue", serif;
+}
