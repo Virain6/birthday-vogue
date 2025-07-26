@@ -8,11 +8,11 @@ export default function VogueCamera() {
 
   useEffect(() => {
     const flashFromDirections = [
-      "left",
-      "right",
-      "top",
-      "top left",
-      "top right",
+      { x: "10%", y: "50%" }, // left
+      { x: "90%", y: "50%" }, // right
+      { x: "50%", y: "10%" }, // top
+      { x: "10%", y: "10%" }, // top left
+      { x: "90%", y: "10%" }, // top right
     ];
 
     const triggerFlash = () => {
@@ -22,43 +22,16 @@ export default function VogueCamera() {
 
       for (let i = 0; i < flashCount; i++) {
         setTimeout(() => {
-          const direction =
+          const { x, y } =
             flashFromDirections[
               Math.floor(Math.random() * flashFromDirections.length)
             ];
-
-          let x = "50%";
-          let y = "50%";
-
-          switch (direction) {
-            case "left":
-              x = "0%";
-              y = "50%";
-              break;
-            case "right":
-              x = "100%";
-              y = "50%";
-              break;
-            case "top":
-              x = "50%";
-              y = "0%";
-              break;
-            case "top left":
-              x = "0%";
-              y = "0%";
-              break;
-            case "top right":
-              x = "100%";
-              y = "0%";
-              break;
-          }
-
           flashRef.current.style.setProperty("--flash-x", x);
           flashRef.current.style.setProperty("--flash-y", y);
-          flashRef.current.style.opacity = "1";
+          flashRef.current.style.opacity = "0.8";
           setTimeout(() => {
             flashRef.current.style.opacity = "0";
-          }, 300);
+          }, 600);
         }, i * 200);
       }
 
@@ -82,7 +55,7 @@ export default function VogueCamera() {
           mixBlendMode: "lighten",
           // Optionally: add radial gradient for directional flash
           background:
-            "radial-gradient(circle at var(--flash-x, 50%) var(--flash-y, 50%), rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 10%, rgba(255,255,255,0.25) 25%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.0) 60%)",
+            "radial-gradient(circle at var(--flash-x, 50%) var(--flash-y, 50%), rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 15%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.05) 60%, transparent 80%)",
         }}
       />
 
@@ -106,25 +79,41 @@ export default function VogueCamera() {
         </div>
 
         {/* Bottom right: SUKHMUN + Birthday */}
-        <div className="text-center pb-10 space-y-2">
-          <h2 className="text-pink-500 text-[15vw]  md:text-[5vw] font-serif font-bold tracking-wide">
+        <div className="text-center pb-10">
+          <h2 className="text-pink-500 text-[15vw]  md:text-[7vw] font-serif font-bold tracking-wide">
             SUKHMUN
           </h2>
-          <p className="text-white italic text-[4vw] sm:text-[2vw] tracking-wider uppercase font-serif">
+          <p className="text-white italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-serif">
             "Bitches it's my mfing 23rd Birthday"
           </p>
         </div>
 
         {/* Bottom left: custom message */}
         <div className="absolute right-4 text-white font-light font-arapey space-y-1 text-right top-[30vw] sm:top-[30%]">
-          <p className="text-pink-400 uppercase text-4xl md:text-6xl tracking-wider">
+          <p className="text-pink-500 uppercase text-4xl md:text-6xl tracking-wider">
             Born on
           </p>
           <p className="text-pink-500 uppercase font-bold text-xl md:text-[33px]">
             August 18, 2002
           </p>
-          <p>Celebrating joy, style, and magic.</p>
-          <p>Here's to unforgettable memories 🎉</p>
+          <p className="uppercase font-arapey text-[29px] md:text-[47px]">
+            A true icon
+          </p>
+          <p className="uppercase font-arapey font-thin text-[28px] md:text-[46px]">
+            Still making
+          </p>
+          <p className="text-pink-500 uppercase font-semibold font-arapey text-[27px] md:text-[44px]">
+            "your mom"
+          </p>
+          <p className="uppercase font-arapey text-[22px] md:text-[35px]">
+            jokes and still
+          </p>
+          <p className="uppercase font-arapey text-[1.04rem] md:text-[27px]">
+            Enjoying like never
+          </p>
+          <p className="uppercase font-arapey font-thin text-[1.8rem] md:text-[46px]">
+            seen before
+          </p>
         </div>
       </div>
     </section>
