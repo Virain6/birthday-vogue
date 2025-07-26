@@ -89,7 +89,7 @@ export default function SecondPage() {
           return (
             <div
               key={`layer-${layer}-item-${index}`}
-              className={`absolute px-4 py-2 rounded-xl text-white text-center font-serif text-[0.9rem] sm:text-[1.1rem] md:text-[1.25rem] lg:text-[1.5rem]`}
+              className={`absolute px-4 py-2 rounded-xl text-white text-center font-arapey text-[0.9rem] sm:text-[1.1rem] md:text-[1.25rem] lg:text-[1.5rem]`}
               style={{
                 left: leftVal || `${Math.floor(Math.random() * 90)}%`,
                 bottom: "-15vh",
