@@ -13,16 +13,30 @@ export default function SecondPage() {
   return (
     <div className="relative overflow-hidden h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="absolute inset-0 flex flex-col items-center justify-center z-[5] space-y-4 text-center">
+        {/* Moving gradient animation keyframes */}
+        <style>
+          {`
+            @keyframes animateGradient {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            .animate-gradient {
+              background-size: 200% 200%;
+              animation: animateGradient 6s ease infinite;
+            }
+          `}
+        </style>
         <Confetti
           width={width}
           height={height}
           numberOfPieces={200}
           gravity={0.2}
         />
-        <h1 className="uppercase text-4xl sm:text-6xl font-extrabold font-serif tracking-wider bg-gradient-to-r from-pink-400 via-yellow-300 to-purple-500 bg-clip-text text-transparent animate-gradient">
+        <h1 className="uppercase text-4xl sm:text-6xl font-extrabold font-vogue tracking-wider bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
           Happy Birthday
         </h1>
-        <h1 className="uppercase text-5xl sm:text-7xl font-extrabold font-serif tracking-wider bg-gradient-to-r from-pink-400 via-yellow-300 to-purple-500 bg-clip-text text-transparent animate-gradient">
+        <h1 className="uppercase text-5xl sm:text-7xl font-extrabold font-vogue tracking-wider bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
           Sukhmun
         </h1>
       </div>
