@@ -11,8 +11,8 @@ const allImages = Object.values(images);
 export default function SecondPage() {
   const [width, height] = useWindowSize();
   return (
-    <div className="relative overflow-hidden h-screen bg-gradient-to-b from-gray-900 to-black text-white">
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-[5] space-y-4 text-center">
+    <div className="relative overflow-hidden h-screen bg-white">
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-[5] space-y-4 text-center grayscale">
         {/* Moving gradient animation keyframes */}
         <style>
           {`
@@ -33,10 +33,17 @@ export default function SecondPage() {
           numberOfPieces={100}
           gravity={0.1}
         />
-        <h1 className="uppercase text-4xl sm:text-6xl font-extrabold font-vogue tracking-wider bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+
+        <h1
+          className="uppercase text-4xl sm:text-6xl font-extrabold font-vogue text-black tracking-wider 
+         animate-gradient"
+        >
           Happy Birthday
         </h1>
-        <h1 className="uppercase text-5xl sm:text-7xl font-extrabold font-vogue tracking-wider bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+        <h1
+          className="uppercase text-5xl sm:text-7xl font-extrabold font-vogue text-black stracking-wider 
+        animate-gradient"
+        >
           Sukhmun
         </h1>
       </div>
@@ -44,9 +51,7 @@ export default function SecondPage() {
         const quotes = quoteLayers[layer] || [];
         const numItems = quotes.length + 2;
         const items = Array.from({ length: numItems }, () => {
-          return Math.random() < 0.5
-            ? quotes[Math.floor(Math.random() * quotes.length)]
-            : allImages[Math.floor(Math.random() * allImages.length)];
+          return allImages[Math.floor(Math.random() * allImages.length)];
         });
 
         const usedPositions = [];
@@ -105,20 +110,16 @@ export default function SecondPage() {
                   : "1px 1px 2px rgba(255,255,255,0.9)",
               }}
             >
-              {isImage ? (
-                <img
-                  src={item}
-                  alt="floating"
-                  className="object-contain rounded shadow-lg "
-                  style={{
-                    width: imgWidth,
-                    height: "auto",
-                    maxHeight: "300px",
-                  }}
-                />
-              ) : (
-                item
-              )}
+              <img
+                src={item}
+                alt="floating"
+                className="object-contain rounded shadow-lg grayscale"
+                style={{
+                  width: imgWidth,
+                  height: "auto",
+                  maxHeight: "300px",
+                }}
+              />
             </div>
           );
         });

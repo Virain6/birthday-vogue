@@ -1,6 +1,7 @@
 import { useState } from "react";
 import VogueCamera from "./components/VogueCamera";
 import SecondPage from "./components/SecondPage";
+import UploadAndGallery from "./components/UploadAndGallery";
 import { ChevronRight } from "lucide-react";
 
 export default function App() {
@@ -44,6 +45,10 @@ export default function App() {
         <>
           <section className="min-h-screen w-full bg-black">
             <VogueCamera />
+          </section>
+
+          <section className="min-h-screen w-full bg-white">
+            <UploadAndGallery />
           </section>
           <section className="min-h-screen w-full bg-black">
             <SecondPage />
