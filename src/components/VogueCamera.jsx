@@ -176,7 +176,7 @@ export default function VogueCamera() {
           <p>STYLE, VIBES, VISION</p>
         </div>
 
-        <div className="absolute bottom-4 w-full text-center font-vogue text-black space-y-2">
+        <div className="absolute bottom-4 w-full text-center font-vogue text-black -space-y-2">
           <p className="text-[16vw] md:text-[8vw] leading-none">SUKHMUN</p>
           <p className="text-lg sm:text-lg italic">
             hottest thing august has to offer
