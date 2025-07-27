@@ -129,23 +129,23 @@ export default function VogueCamera() {
       {/* VOGUE Overlay */}
       <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between w-full px-4">
         <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-8 flex flex-col items-center w-full">
-          <h1 className="text-white text-[25vw] sm:text-[16vw] leading-none font-vogue tracking-wider">
+          <h1 className="text-black text-[25vw] sm:text-[16vw] leading-none font-vogue tracking-wider">
             VOGUE
           </h1>
         </div>
 
         {/* Bottom right: SUKHMUN + Birthday */}
         <div className="text-center pb-10">
-          <h2 className="text-white text-[15vw]  md:text-[7vw] leading-none  font-thin font-vogue  tracking-wide">
+          <h2 className="text-black text-[15vw]  md:text-[7vw] leading-none  font-thin font-vogue  tracking-wide">
             SUKHMUN
           </h2>
-          <p className="text-white italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-vogue">
+          <p className="text-black italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-vogue">
             "Bitches it's my mfing 23rd Birthday"
           </p>
         </div>
 
         {/* Bottom left: custom message */}
-        <div className="absolute right-4 text-white font-light font-arapey space-y-1 text-right top-[30vw] sm:top-[30%]">
+        <div className="absolute right-4 text-black font-light font-arapey space-y-1 text-right top-[30vw] sm:top-[30%]">
           <p className="text-pink-500 uppercase text-4xl md:text-6xl tracking-wider">
             Born on
           </p>
@@ -160,7 +160,7 @@ export default function VogueCamera() {
           </p>
           <p className="uppercase font-arapey text-[18px] md:text-[29px]">
             <span className="text-pink-500 font-semibold">"your mom"</span>{" "}
-            <span className="text-white">Jokes</span>
+            <span className="text-black">Jokes</span>
           </p>
           <p className="uppercase font-arapey text-[1.05rem] md:text-[27px]">
             Muscles like never
