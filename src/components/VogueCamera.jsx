@@ -29,6 +29,7 @@ export default function VogueCamera() {
       webcamImage.style.objectFit = "cover";
       webcamImage.style.zIndex = "1";
       webcamImage.style.transform = "scaleX(-1)";
+      webcamImage.style.filter = "grayscale(100%)";
 
       // Hide the webcam video temporarily
       const video = webcamRef.current.video;
@@ -124,49 +125,46 @@ export default function VogueCamera() {
           screenshotFormat="image/jpeg"
           className="w-full h-full object-cover transform scale-x-[-1]"
           videoConstraints={{ facingMode: "user" }}
+          style={{ filter: "grayscale(100%)" }}
         />
       </div>
       {/* VOGUE Overlay */}
-      <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between w-full px-4">
-        <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-8 flex flex-col items-center w-full">
-          <h1 className="text-black text-[25vw] sm:text-[16vw] leading-none font-vogue tracking-wider">
-            VOGUE
-          </h1>
+      <div className="absolute inset-0 z-20 pointer-events-none w-full">
+        <div className="absolute top-6 w-full z-30">
+          <div className="flex justify-center">
+            <h1 className="text-black text-[29vw] md:text-[16vw] leading-none font-vogue tracking-wider relative">
+              VOGUE
+            </h1>
+          </div>
+          <div className="absolute left-6 top-[calc(6rem+7vw)] ml-4">
+            <p className="text-black text-sm md:text-lg font-vogue tracking-[0.5em] text-left">
+              LIMITED EDITION
+            </p>
+          </div>
         </div>
 
-        {/* Bottom right: SUKHMUN + Birthday */}
-        <div className="text-center pb-10">
-          <h2 className="text-black text-[15vw]  md:text-[7vw] leading-none  font-thin font-vogue  tracking-wide">
-            SUKHMUN
-          </h2>
-          <p className="text-black italic text-[3vw] sm:text-[1.5vw] tracking-wider uppercase font-vogue">
-            "Bitches it's my mfing 23rd Birthday"
-          </p>
+        <div className="absolute top-[25%] right-10 text-right font-vogue text-black text-xs sm:text-sm leading-tight max-w-[40vw]">
+          <div className="uppercase -space-y-4">
+            <p className="text-black font-vogue text-2xl sm:text-3xl">
+              Cheers to
+            </p>
+            <p className="text-black font-vogue text-[100px] sm:text-[100px]">
+              23
+            </p>
+            <p className="text-black font-vogue text-4xl sm:text-4xl">Years</p>
+          </div>
         </div>
 
-        {/* Bottom left: custom message */}
-        <div className="absolute right-4 text-black font-light font-arapey space-y-1 text-right top-[30vw] sm:top-[30%]">
-          <p className="text-pink-500 uppercase text-4xl md:text-6xl tracking-wider">
-            Born on
-          </p>
-          <p className="text-pink-500 uppercase font-bold text-xl md:text-[33px]">
-            August 18, 2002
-          </p>
-          <p className="uppercase font-arapey text-[29px] md:text-[47px]">
-            A true icon
-          </p>
-          <p className="uppercase font-arapey font-thin text-[1.8rem] md:text-[46px]">
-            Still making
-          </p>
-          <p className="uppercase font-arapey text-[18px] md:text-[29px]">
-            <span className="text-pink-500 font-semibold">"your mom"</span>{" "}
-            <span className="text-black">Jokes</span>
-          </p>
-          <p className="uppercase font-arapey text-[1.05rem] md:text-[27px]">
-            Muscles like never
-          </p>
-          <p className="uppercase font-arapey font-thin text-[1.8rem] md:text-[46px]">
-            seen before
+        <div className="absolute bottom-[20%] left-4 text-left font-vogue text-black text-[15px] sm:text-sm leading-snug space-y-1 break-words w-full max-w-[40vw]">
+          <p>INSIDE SUKHMUN’S WORLD</p>
+          <p>SPECIAL FRIENDS + A LOOK INSIDE</p>
+          <p>STYLE, VIBES, VISION</p>
+        </div>
+
+        <div className="absolute bottom-4 w-full text-center font-vogue text-black space-y-2">
+          <p className="text-[16vw] md:text-[8vw] leading-none">SUKHMUN</p>
+          <p className="text-lg sm:text-lg italic">
+            hottest thing august has to offer
           </p>
         </div>
       </div>{" "}
