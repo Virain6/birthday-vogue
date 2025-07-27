@@ -13,6 +13,7 @@
     "@react-hook/window-size": "^3.1.1",
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.9",
+    "html2canvas-pro": "^1.5.11",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-confetti": "^6.4.0",

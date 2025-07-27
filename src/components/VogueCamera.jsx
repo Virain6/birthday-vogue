@@ -1,10 +1,58 @@
 // src/components/VogueCamera.jsx
 import React, { useRef, useEffect } from "react";
 import Webcam from "react-webcam";
+import html2canvas from "html2canvas-pro";
 
 export default function VogueCamera() {
   const webcamRef = useRef(null);
   const flashRef = useRef(null);
+  const captureRef = useRef(null);
+
+  const captureScreenshot = async () => {
+    try {
+      // Get a still frame from the webcam
+      const screenshot = webcamRef.current.getScreenshot();
+
+      // Create a new image element with the screenshot
+      const webcamImage = document.createElement("img");
+      webcamImage.src = screenshot;
+      webcamImage.style.position = "absolute";
+      webcamImage.style.top = 0;
+      webcamImage.style.left = 0;
+      webcamImage.style.width = "100%";
+      webcamImage.style.height = "100%";
+      webcamImage.style.objectFit = "cover";
+      webcamImage.style.zIndex = "1";
+      webcamImage.style.transform = "scaleX(-1)";
+
+      // Hide the webcam video temporarily
+      const video = webcamRef.current.video;
+      if (video) video.style.display = "none";
+
+      // Add the image over the webcam
+      const captureTarget = captureRef.current;
+      captureTarget.appendChild(webcamImage);
+
+      // Capture screenshot of the full section
+      const canvas = await html2canvas(captureTarget, {
+        backgroundColor: null,
+        useCORS: true,
+        logging: true,
+      });
+
+      // Download the image
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = "vogue-screenshot.png";
+      link.click();
+
+      // Cleanup
+      if (video) video.style.display = "";
+      captureTarget.removeChild(webcamImage);
+    } catch (error) {
+      console.error("Screenshot failed:", error);
+    }
+  };
 
   useEffect(() => {
     const flashFromDirections = [
@@ -43,7 +91,10 @@ export default function VogueCamera() {
   }, []);
 
   return (
-    <section className="relative min-w-screen min-h-screen bg-black overflow-hidden">
+    <section
+      ref={captureRef}
+      className="relative min-w-screen min-h-screen bg-black overflow-hidden"
+    >
       {/* Flash effect */}
       <div
         ref={flashRef}
@@ -112,6 +163,12 @@ export default function VogueCamera() {
           </p>
         </div>
       </div>{" "}
+      <button
+        onClick={captureScreenshot}
+        className="absolute z-50 bottom-6 right-6 flex items-center justify-center w-13 h-13 rounded-full  border-4 border-white"
+      >
+        <div className="w-10 h-10 bg-white rounded-full" />
+      </button>
     </section>
   );
 }
