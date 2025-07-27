@@ -30,8 +30,8 @@ export default function SecondPage() {
         <Confetti
           width={width}
           height={height}
-          numberOfPieces={200}
-          gravity={0.2}
+          numberOfPieces={100}
+          gravity={0.1}
         />
         <h1 className="uppercase text-4xl sm:text-6xl font-extrabold font-vogue tracking-wider bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
           Happy Birthday
@@ -82,7 +82,7 @@ export default function SecondPage() {
           else if (layer === 3) zIndex = 8;
           const opacity = 1;
           const color = `hsl(${Math.floor(Math.random() * 360)}, 50%, 85%)`; // pastel/muted tone
-          const sizeScale = 0.5 + Math.random() * 1.5; // scale between 0.5x and 2x
+          const sizeScale = 1 + Math.random() * 1.2; // scale between 0.8x and 2x
           const fontSize = `${sizeScale * 1.25}rem`; // text size varies
           const imgWidth = `${sizeScale * 120}px`; // image width varies
 
