@@ -1,38 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { getDownloadURL, listAll, ref } from "firebase/storage";
-import { storage } from "../lib/firebase";
 import { ArrowDownToLine } from "lucide-react";
 import ImageUploadButton from "./ImageUploaderButton";
+import { useSharedImages } from "../lib/useSharedImages";
 
 export default function RandomImageCollage() {
-  const [allImages, setAllImages] = useState([]);
+  const allImages = useSharedImages();
   const [visibleImages, setVisibleImages] = useState([]);
-  const [fadeState, setFadeState] = useState([true, true, true, true]); // true = visible
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const imagesRef = ref(storage, "images");
-        const result = await listAll(imagesRef);
-        const allItems = result.items;
-        const urls = await Promise.all(
-          allItems.map((item) => getDownloadURL(item))
-        );
-        setAllImages(urls);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-    fetchImages();
-  }, []);
+  const [fadeState, setFadeState] = useState([true, true, true, true]);
 
   useEffect(() => {
     if (allImages.length === 0) return;
-    const updateVisible = () => {
-      if (allImages.length === 0) return;
 
+    const updateVisible = () => {
       // Step 1: Fade out in sequence
-      const fadeOutOrder = [0, 1, 2, 3]; // top-left, top-right, bottom-left, bottom-right
+      const fadeOutOrder = [0, 1, 2, 3];
       fadeOutOrder.forEach((index, delayIdx) => {
         setTimeout(() => {
           setFadeState((prev) => {
@@ -40,14 +21,14 @@ export default function RandomImageCollage() {
             copy[index] = false;
             return copy;
           });
-        }, delayIdx * 150); // staggered by 150ms
+        }, delayIdx * 150);
       });
 
       // Step 2: Replace images after all are faded out
       setTimeout(() => {
         const shuffled = [...allImages].sort(() => 0.5 - Math.random());
         setVisibleImages(shuffled.slice(0, 4));
-      }, 700); // wait until fade out is done
+      }, 700);
 
       // Step 3: Fade in in same sequence
       fadeOutOrder.forEach((index, delayIdx) => {
@@ -57,9 +38,10 @@ export default function RandomImageCollage() {
             copy[index] = true;
             return copy;
           });
-        }, 900 + delayIdx * 150); // delay before fade in
+        }, 900 + delayIdx * 150);
       });
     };
+
     updateVisible();
     const interval = setInterval(updateVisible, 8000);
     return () => clearInterval(interval);
@@ -94,7 +76,6 @@ export default function RandomImageCollage() {
         ))}
       </div>
 
-      {/* Floating Upload Button */}
       <ImageUploadButton />
     </div>
   );
