@@ -10,6 +10,11 @@ export default function VogueCamera() {
 
   const captureScreenshot = async () => {
     try {
+      const buttonContainer = document.querySelector(
+        ".screenshot-button-container"
+      );
+      if (buttonContainer) buttonContainer.style.display = "none";
+
       // Get a still frame from the webcam
       const screenshot = webcamRef.current.getScreenshot();
 
@@ -49,6 +54,8 @@ export default function VogueCamera() {
       // Cleanup
       if (video) video.style.display = "";
       captureTarget.removeChild(webcamImage);
+
+      if (buttonContainer) buttonContainer.style.display = "";
     } catch (error) {
       console.error("Screenshot failed:", error);
     }
@@ -93,7 +100,7 @@ export default function VogueCamera() {
   return (
     <section
       ref={captureRef}
-      className="relative min-w-screen min-h-screen bg-black overflow-hidden"
+      className="relative min-w-screen min-h-screen bg-black overflow-hidden pt-2"
     >
       {/* Flash effect */}
       <div
@@ -121,7 +128,7 @@ export default function VogueCamera() {
       </div>
       {/* VOGUE Overlay */}
       <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-between w-full px-4">
-        <div className="pt-6 flex flex-col items-center w-full">
+        <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-8 flex flex-col items-center w-full">
           <h1 className="text-white text-[25vw] sm:text-[16vw] leading-none font-vogue tracking-wider">
             VOGUE
           </h1>
@@ -163,12 +170,14 @@ export default function VogueCamera() {
           </p>
         </div>
       </div>{" "}
-      <button
-        onClick={captureScreenshot}
-        className="absolute z-50 bottom-6 right-6 flex items-center justify-center w-13 h-13 rounded-full  border-4 border-white"
-      >
-        <div className="w-10 h-10 bg-white rounded-full" />
-      </button>
+      <div className="screenshot-button-container absolute z-50 bottom-6 right-6">
+        <button
+          onClick={captureScreenshot}
+          className="flex items-center justify-center w-13 h-13 rounded-full border-4 border-white"
+        >
+          <div className="w-10 h-10 bg-white rounded-full" />
+        </button>
+      </div>
     </section>
   );
 }
