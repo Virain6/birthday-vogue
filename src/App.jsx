@@ -34,7 +34,7 @@ export default function App() {
             />
             <button
               type="submit"
-              className="ml-4 p-4 text-pink rounded-xl transition w-fit"
+              className="ml-4 p-4 text-black rounded-xl transition w-fit"
             >
               <ChevronRight className="w-8 h-8 md:w-10 md:h-10 text-pink-500 hover:text-pink-300" />
             </button>
