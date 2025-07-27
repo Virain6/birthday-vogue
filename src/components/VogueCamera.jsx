@@ -16,6 +16,11 @@ export default function VogueCamera() {
       if (buttonContainer) buttonContainer.style.display = "none";
 
       // Get a still frame from the webcam
+      const video = webcamRef.current.video;
+      if (video) {
+        video.style.filter = "grayscale(100%)";
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
       const screenshot = webcamRef.current.getScreenshot();
 
       // Create a new image element with the screenshot
@@ -32,7 +37,6 @@ export default function VogueCamera() {
       webcamImage.style.filter = "grayscale(100%)";
 
       // Hide the webcam video temporarily
-      const video = webcamRef.current.video;
       if (video) video.style.display = "none";
 
       // Add the image over the webcam
@@ -45,6 +49,18 @@ export default function VogueCamera() {
         useCORS: true,
         logging: true,
       });
+
+      // Convert the canvas to grayscale
+      const ctx = canvas.getContext("2d");
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imgData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        data[i] = avg; // Red
+        data[i + 1] = avg; // Green
+        data[i + 2] = avg; // Blue
+      }
+      ctx.putImageData(imgData, 0, 0);
 
       // Download the image
       const link = document.createElement("a");
@@ -123,9 +139,8 @@ export default function VogueCamera() {
           ref={webcamRef}
           audio={false}
           screenshotFormat="image/jpeg"
-          className="w-full h-full object-cover transform scale-x-[-1]"
+          className="w-full h-full object-cover transform scale-x-[-1] filter grayscale"
           videoConstraints={{ facingMode: "user" }}
-          style={{ filter: "grayscale(100%)" }}
         />
       </div>
       {/* VOGUE Overlay */}
@@ -148,7 +163,7 @@ export default function VogueCamera() {
             <p className="text-black font-vogue text-2xl sm:text-3xl">
               Cheers to
             </p>
-            <p className="text-black font-vogue text-[100px] sm:text-[100px]">
+            <p className="text-black font-vogue text-[100px] sm:text-[100px] italic">
               23
             </p>
             <p className="text-black font-vogue text-4xl sm:text-4xl">Years</p>
