@@ -170,7 +170,7 @@ export default function VogueCamera() {
           </div>
         </div>
 
-        <div className="absolute bottom-[20%] left-4 text-left font-vogue text-black text-[15px] sm:text-sm leading-snug space-y-1 break-words w-full max-w-[40vw]">
+        <div className="absolute bottom-[20%] left-4 text-left font-vogue text-black text-[15px] sm:text-lg leading-snug space-y-1 break-words w-full max-w-[40vw]">
           <p>INSIDE SUKHMUN’S WORLD</p>
           <p>SPECIAL FRIENDS + A LOOK INSIDE</p>
           <p>STYLE, VIBES, VISION</p>
